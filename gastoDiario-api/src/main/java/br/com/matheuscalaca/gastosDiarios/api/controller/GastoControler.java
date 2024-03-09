@@ -37,11 +37,11 @@ public class GastoControler {
         return ResponseEntity.status(HttpStatus.CREATED).body(Response.SUCCESS);
     }
 
-    @GetMapping("gasto/{userId}/{month}")
-    public ResponseEntity<List<Gasto>> getGastosByMonth(@PathVariable("userId") Long userId, @PathVariable("month") Integer month) {
+    @GetMapping("gasto/{userId}/{month}/{year}")
+    public ResponseEntity<List<Gasto>> getGastosByMonth(@PathVariable("userId") Long userId, @PathVariable("month") Integer month, @PathVariable("year") Integer year) {
         User user = new User();
         user.setId(userId);
-        List<Gasto> gastos = getGastoUserByMonthInput.execute(user, month);
+        List<Gasto> gastos = getGastoUserByMonthInput.execute(user, month, year);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(gastos);
     }

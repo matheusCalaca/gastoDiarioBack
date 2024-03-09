@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface GetGastoUserByMonthInput {
 
-    public List<Gasto> execute(User user, Integer month);
+    public List<Gasto> execute(User user, Integer month, Integer year);
 }

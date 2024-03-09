@@ -8,6 +8,6 @@ import java.util.List;
 public interface GastoOutput {
     void creat(Gasto gasto);
 
-    List<Gasto> findByUserAndMonth(User user, Integer month);
+    List<Gasto> findByUserAndMonth(User user, Integer month, Integer year);
 
 }

@@ -6,6 +6,7 @@ import br.com.matheuscalaca.gastosDiarios.core.exception.ValidException;
 import br.com.matheuscalaca.gastosDiarios.core.input.GetGastoUserByMonthInput;
 import br.com.matheuscalaca.gastosDiarios.core.output.GastoOutput;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class GetGastoUserByMonthUseCase implements GetGastoUserByMonthInput {
@@ -20,15 +21,19 @@ public class GetGastoUserByMonthUseCase implements GetGastoUserByMonthInput {
     }
 
     @Override
-    public List<Gasto> execute(User user, Integer month) {
+    public List<Gasto> execute(User user, Integer month, Integer year) {
         if (month == null || month > 12 || month < 1) {
-            throw new ValidException("month Error month: "+month);
+            throw new ValidException("month Error month: " + month);
         }
 
-        if (user == null){
+        if (year == null || year > LocalDate.now().getYear()) {
+            throw new ValidException("year Error year: " + year);
+        }
+
+        if (user == null) {
             throw new ValidException("User error");
         }
 
-        return gastoOutput.findByUserAndMonth(user, month);
+        return gastoOutput.findByUserAndMonth(user, month, year);
     }
 }
