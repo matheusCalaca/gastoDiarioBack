@@ -1,0 +1,21 @@
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'idea'
+
+	group 'br.com.matheuscalaca.gastosDiarios'
+	version '1.0-SNAPSHOT'
+
+	repositories {
+		mavenCentral()
+	}
+
+	tasks.withType(JavaCompile) {
+		options.encoding = 'UTF-8'
+	}
+
+	tasks.withType(Test) {
+		testLogging {
+			events "passed", "skipped", "failed"
+		}
+	}
+}
