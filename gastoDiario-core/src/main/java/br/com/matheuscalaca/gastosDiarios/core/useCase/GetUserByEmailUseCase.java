@@ -2,6 +2,7 @@ package br.com.matheuscalaca.gastosDiarios.core.useCase;
 
 import br.com.matheuscalaca.gastosDiarios.core.domain.Categoria;
 import br.com.matheuscalaca.gastosDiarios.core.domain.User;
+import br.com.matheuscalaca.gastosDiarios.core.domain.UserAuthetication;
 import br.com.matheuscalaca.gastosDiarios.core.input.GetCategoriaInput;
 import br.com.matheuscalaca.gastosDiarios.core.input.GetUserByEmailInput;
 import br.com.matheuscalaca.gastosDiarios.core.output.CategoriaOutput;
@@ -18,7 +19,7 @@ public class GetUserByEmailUseCase implements GetUserByEmailInput {
     }
 
     @Override
-    public User execute(String email) {
+    public UserAuthetication execute(String email) {
         return userOutput.findByEmail(email);
     }
 }

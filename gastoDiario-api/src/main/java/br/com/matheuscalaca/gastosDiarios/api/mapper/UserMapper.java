@@ -2,6 +2,7 @@ package br.com.matheuscalaca.gastosDiarios.api.mapper;
 
 import br.com.matheuscalaca.gastosDiarios.api.dto.UserDto;
 import br.com.matheuscalaca.gastosDiarios.core.domain.User;
+import br.com.matheuscalaca.gastosDiarios.core.domain.UserAuthetication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
@@ -21,8 +22,17 @@ public class UserMapper {
         userDto.setCpf(user.getCpf());
         userDto.setNome(user.getNome());
         userDto.setEmail(user.getEmail());
-        // TODO alterar para buscar do BD
-        userDto.setPassword(new BCryptPasswordEncoder().encode("123"));
+
+        return userDto;
+    }
+
+    public UserDto autenticationtoDto(UserAuthetication userAuthetication) {
+        UserDto userDto = new UserDto();
+        User user = userAuthetication.getUser();
+        userDto.setCpf(user.getCpf());
+        userDto.setNome(user.getNome());
+        userDto.setEmail(user.getEmail());
+        userDto.setPassword(userAuthetication.getPassword());
 
         return userDto;
     }

@@ -16,15 +16,15 @@ public class CreateUserUseCase implements CreateUserInput {
     }
 
     @Override
-    public User execute(User user) {
+    public User execute(User user, String password) {
 
-        validationUser(user);
+        validationUser(user, password);
 
-        userOutput.creat(user);
+        userOutput.creat(user, password);
         return null;
     }
 
-    private void validationUser(User user) {
+    private void validationUser(User user, String password) {
         if(user.getCpf() == null || user.getCpf().isBlank()){
             throw new ValidException(user.getCpf());
         }
@@ -35,6 +35,10 @@ public class CreateUserUseCase implements CreateUserInput {
 
         if(user.getEmail() == null || user.getEmail().isBlank()){
             throw new ValidException(user.getEmail());
+        }
+
+        if(password.isBlank() || password.isEmpty()){
+            throw new ValidException("pssword Inavlid");
         }
     }
 }

@@ -11,8 +11,7 @@ import java.time.LocalDate;
 public class GastoEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "gasto_seq_gen")
-    @SequenceGenerator(name = "gasto_seq_gen", sequenceName = "gastodiario.gasto_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
     @JoinColumn(name = "user_id")

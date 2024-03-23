@@ -2,6 +2,7 @@ package br.com.matheuscalaca.gastosDiarios.api.JwtService;
 
 import br.com.matheuscalaca.gastosDiarios.api.mapper.UserMapper;
 import br.com.matheuscalaca.gastosDiarios.core.domain.User;
+import br.com.matheuscalaca.gastosDiarios.core.domain.UserAuthetication;
 import br.com.matheuscalaca.gastosDiarios.core.input.GetUserByEmailInput;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,11 +22,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = getUserByEmailInput.execute(email);
+        UserAuthetication user = getUserByEmailInput.execute(email);
         if (user == null) {
             throw new UsernameNotFoundException("could not found user..!!");
         }
-        return userMapper.toDto(user);
+        return userMapper.autenticationtoDto(user);
 
     }
 }

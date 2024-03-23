@@ -4,5 +4,5 @@ import br.com.matheuscalaca.gastosDiarios.core.domain.User;
 
 public interface CreateUserInput {
 
-    public User execute(User user);
+    public User execute(User user, String password);
 }

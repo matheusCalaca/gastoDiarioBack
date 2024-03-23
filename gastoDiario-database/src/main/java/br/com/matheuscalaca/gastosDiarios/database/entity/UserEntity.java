@@ -1,6 +1,7 @@
 package br.com.matheuscalaca.gastosDiarios.database.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "USER")
@@ -9,9 +10,14 @@ public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @NotNull
+    @Column(unique = true)
     private String cpf;
+    @NotNull
     private String nome;
+
+    @NotNull
+    @Column(unique = true)
     private String email;
 
     public UserEntity() {
