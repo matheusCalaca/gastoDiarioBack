@@ -1,13 +1,12 @@
 package br.com.matheuscalaca.gastosDiarios.api.dto;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class GastoDto {
+public class CategoriaDto {
 
     private Long userId;
     private String nome;
-    private BigDecimal valor;
+    private Long valor;
     private LocalDate dataCompra;
     private Long categoriaId;
 
@@ -27,11 +26,11 @@ public class GastoDto {
         this.nome = nome;
     }
 
-    public BigDecimal getValor() {
+    public Long getValor() {
         return valor;
     }
 
-    public void setValor(BigDecimal valor) {
+    public void setValor(Long valor) {
         this.valor = valor;
     }
 

@@ -2,12 +2,16 @@ package br.com.matheuscalaca.gastosDiarios.api.config;
 
 import br.com.matheuscalaca.gastosDiarios.core.input.CreateGastoInput;
 import br.com.matheuscalaca.gastosDiarios.core.input.CreateUserInput;
+import br.com.matheuscalaca.gastosDiarios.core.input.GetCategoriaInput;
 import br.com.matheuscalaca.gastosDiarios.core.input.GetGastoUserByMonthInput;
+import br.com.matheuscalaca.gastosDiarios.core.output.CategoriaOutput;
 import br.com.matheuscalaca.gastosDiarios.core.output.GastoOutput;
 import br.com.matheuscalaca.gastosDiarios.core.output.UserOutput;
 import br.com.matheuscalaca.gastosDiarios.core.useCase.CreateGastoUseCase;
 import br.com.matheuscalaca.gastosDiarios.core.useCase.CreateUserUseCase;
+import br.com.matheuscalaca.gastosDiarios.core.useCase.GetCategoriaUseCase;
 import br.com.matheuscalaca.gastosDiarios.core.useCase.GetGastoUserByMonthUseCase;
+import br.com.matheuscalaca.gastosDiarios.database.adapter.CategoriaAdpter;
 import br.com.matheuscalaca.gastosDiarios.database.adapter.GastoAdpter;
 import br.com.matheuscalaca.gastosDiarios.database.adapter.UserAdapter;
 import org.springframework.context.annotation.Bean;
@@ -31,6 +35,11 @@ public class AppConfig {
     }
 
     @Bean
+    public CategoriaOutput categoriaOutput() {
+        return new CategoriaAdpter();
+    }
+
+    @Bean
     public CreateUserInput createUserInput(UserOutput userOutput) {
         return new CreateUserUseCase(userOutput);
     }
@@ -43,6 +52,11 @@ public class AppConfig {
     @Bean
     public GetGastoUserByMonthInput getGastoUserByMonthInput(GastoOutput gastoOutput) {
         return new GetGastoUserByMonthUseCase(gastoOutput);
+    }
+
+    @Bean
+    public GetCategoriaInput getCategoriaInput(CategoriaOutput categoriaOutput) {
+        return new GetCategoriaUseCase(categoriaOutput);
     }
 
 

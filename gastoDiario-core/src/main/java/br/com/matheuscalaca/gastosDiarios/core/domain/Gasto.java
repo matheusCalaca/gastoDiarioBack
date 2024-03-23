@@ -1,12 +1,13 @@
 package br.com.matheuscalaca.gastosDiarios.core.domain;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class Gasto {
 
     private User user;
     private String nome;
-    private Long valor;
+    private BigDecimal valor;
     private LocalDate dataCompra;
     private Categoria categoria;
 
@@ -18,11 +19,11 @@ public class Gasto {
         this.nome = nome;
     }
 
-    public Long getValor() {
+    public BigDecimal getValor() {
         return valor;
     }
 
-    public void setValor(Long valor) {
+    public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
 

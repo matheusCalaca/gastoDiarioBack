@@ -21,7 +21,7 @@ public class CreateGastoUseCase implements CreateGastoInput {
             throw new ValidException("GASTO nome invalido: "+gasto.getNome());
         }
 
-        if(gasto.getValor() == null || gasto.getValor() <= 0L ){
+        if(gasto.getValor() == null || gasto.getValor().compareTo(BigDecimal.ZERO) <= 0 ){
             throw new ValidException("GASTO Valor invalido: "+gasto.getValor());
         }
 

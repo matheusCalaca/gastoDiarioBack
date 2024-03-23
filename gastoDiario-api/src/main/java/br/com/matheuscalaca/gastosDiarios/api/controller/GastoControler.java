@@ -30,6 +30,8 @@ public class GastoControler {
     @PostMapping("gasto")
     public ResponseEntity<Response> creatGasto(@RequestBody GastoDto gastoDto) {
         try {
+            System.out.println("criar "+gastoDto.toString());
+
             createGastoInput.execute(gastoMapper.toEntity(gastoDto));
         } catch (ValidException ex) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Response.ERROR_VALIDATION);
@@ -39,6 +41,7 @@ public class GastoControler {
 
     @GetMapping("gasto/{userId}/{month}/{year}")
     public ResponseEntity<List<Gasto>> getGastosByMonth(@PathVariable("userId") Long userId, @PathVariable("month") Integer month, @PathVariable("year") Integer year) {
+        System.out.println("obetendo os dados");
         User user = new User();
         user.setId(userId);
         List<Gasto> gastos = getGastoUserByMonthInput.execute(user, month, year);

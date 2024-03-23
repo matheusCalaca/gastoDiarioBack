@@ -3,6 +3,7 @@ package br.com.matheuscalaca.gastosDiarios.database.entity;
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
@@ -20,7 +21,7 @@ public class GastoEntity {
     @Nonnull
     private String nome;
     @Nonnull
-    private Long valor;
+    private BigDecimal valor;
     @Nonnull
     @Column(name = "data_compra")
     private LocalDate dataCompra;
@@ -63,11 +64,11 @@ public class GastoEntity {
     }
 
     @Nonnull
-    public Long getValor() {
+    public BigDecimal getValor() {
         return valor;
     }
 
-    public void setValor(@Nonnull Long valor) {
+    public void setValor(@Nonnull BigDecimal valor) {
         this.valor = valor;
     }
 
