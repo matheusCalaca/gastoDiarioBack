@@ -7,10 +7,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import java.util.Collection;
 import java.util.List;
 
-public class UserDto implements  UserDetails {
+public class UserDto implements UserDetails {
     private String cpf;
     private String nome;
     private String email;
+    private String password;
 
     public String getCpf() {
         return cpf;
@@ -41,9 +42,13 @@ public class UserDto implements  UserDetails {
         return List.of();
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public String getPassword() {
-        return new BCryptPasswordEncoder().encode("123");
+        return password;
     }
 
     @Override

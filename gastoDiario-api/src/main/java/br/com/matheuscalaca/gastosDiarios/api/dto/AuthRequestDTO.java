@@ -1,5 +1,7 @@
 package br.com.matheuscalaca.gastosDiarios.api.dto;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 public class AuthRequestDTO {
     private String username;
     private String password;

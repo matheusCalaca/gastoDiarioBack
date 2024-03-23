@@ -40,7 +40,8 @@ public class LoginControler {
 
     @PostMapping("/login")
     public JwtResponseDTO AuthenticateAndGetToken(@RequestBody AuthRequestDTO authRequestDTO){
-        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequestDTO.getUsername(), authRequestDTO.getPassword()));
+        UsernamePasswordAuthenticationToken passwordAuthenticationToken = new UsernamePasswordAuthenticationToken(authRequestDTO.getUsername(), authRequestDTO.getPassword());
+        Authentication authentication = authenticationManager.authenticate(passwordAuthenticationToken);
         if(authentication.isAuthenticated()){
             return JwtResponseDTO.builder()
                     .accessToken(jwtService.generateToken(authRequestDTO.getUsername()))
