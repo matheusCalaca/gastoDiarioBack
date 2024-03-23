@@ -7,10 +7,7 @@ import br.com.matheuscalaca.gastosDiarios.core.input.GetGastoUserByMonthInput;
 import br.com.matheuscalaca.gastosDiarios.core.output.CategoriaOutput;
 import br.com.matheuscalaca.gastosDiarios.core.output.GastoOutput;
 import br.com.matheuscalaca.gastosDiarios.core.output.UserOutput;
-import br.com.matheuscalaca.gastosDiarios.core.useCase.CreateGastoUseCase;
-import br.com.matheuscalaca.gastosDiarios.core.useCase.CreateUserUseCase;
-import br.com.matheuscalaca.gastosDiarios.core.useCase.GetCategoriaUseCase;
-import br.com.matheuscalaca.gastosDiarios.core.useCase.GetGastoUserByMonthUseCase;
+import br.com.matheuscalaca.gastosDiarios.core.useCase.*;
 import br.com.matheuscalaca.gastosDiarios.database.adapter.CategoriaAdpter;
 import br.com.matheuscalaca.gastosDiarios.database.adapter.GastoAdpter;
 import br.com.matheuscalaca.gastosDiarios.database.adapter.UserAdapter;
@@ -57,6 +54,11 @@ public class AppConfig {
     @Bean
     public GetCategoriaInput getCategoriaInput(CategoriaOutput categoriaOutput) {
         return new GetCategoriaUseCase(categoriaOutput);
+    }
+
+    @Bean
+    public GetUserByEmailUseCase getUserByEmailUseCase(UserOutput userOutput) {
+        return new GetUserByEmailUseCase(userOutput);
     }
 
 

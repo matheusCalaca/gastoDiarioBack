@@ -8,6 +8,8 @@ import br.com.matheuscalaca.gastosDiarios.database.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 public class UserAdapter implements UserOutput {
 
@@ -18,5 +20,13 @@ public class UserAdapter implements UserOutput {
     public void creat(User user) {
         UserEntity userEntity = UserMapper.toEntity(user);
         userRepository.save(userEntity);
+    }
+
+    @Override
+    public User findByEmail(String email) {
+        Optional<UserEntity> userEntity = userRepository.findFirstByEmail(email);
+
+        return userEntity.map(UserMapper::toDomain).orElse(null);
+
     }
 }

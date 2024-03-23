@@ -15,4 +15,13 @@ public class UserMapper {
         return user;
     }
 
+    public UserDto toDto(User user) {
+        UserDto userDto = new UserDto();
+        userDto.setCpf(user.getCpf());
+        userDto.setNome(user.getNome());
+        userDto.setEmail(user.getEmail());
+
+        return userDto;
+    }
+
 }
