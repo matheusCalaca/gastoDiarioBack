@@ -46,6 +46,6 @@ public class GastoControler {
         user.setId(userId);
         List<Gasto> gastos = getGastoUserByMonthInput.execute(user, month, year);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(gastos);
+        return ResponseEntity.status(HttpStatus.OK).body(gastos);
     }
 }
