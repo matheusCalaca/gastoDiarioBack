@@ -22,6 +22,12 @@ public class GetGastoUserByMonthUseCase implements GetGastoUserByMonthInput {
 
     @Override
     public List<Gasto> execute(User user, Integer month, Integer year) {
+        validateMonthYearUser(user, month, year);
+
+        return gastoOutput.findByUserAndMonth(user, month, year);
+    }
+
+    static void validateMonthYearUser(User user, Integer month, Integer year) {
         if (month == null || month > 12 || month < 1) {
             throw new ValidException("month Error month: " + month);
         }
@@ -33,7 +39,5 @@ public class GetGastoUserByMonthUseCase implements GetGastoUserByMonthInput {
         if (user == null) {
             throw new ValidException("User error");
         }
-
-        return gastoOutput.findByUserAndMonth(user, month, year);
     }
 }

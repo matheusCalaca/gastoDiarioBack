@@ -1,9 +1,6 @@
 package br.com.matheuscalaca.gastosDiarios.api.config;
 
-import br.com.matheuscalaca.gastosDiarios.core.input.CreateGastoInput;
-import br.com.matheuscalaca.gastosDiarios.core.input.CreateUserInput;
-import br.com.matheuscalaca.gastosDiarios.core.input.GetCategoriaInput;
-import br.com.matheuscalaca.gastosDiarios.core.input.GetGastoUserByMonthInput;
+import br.com.matheuscalaca.gastosDiarios.core.input.*;
 import br.com.matheuscalaca.gastosDiarios.core.output.CategoriaOutput;
 import br.com.matheuscalaca.gastosDiarios.core.output.GastoOutput;
 import br.com.matheuscalaca.gastosDiarios.core.output.UserOutput;
@@ -49,6 +46,11 @@ public class AppConfig {
     @Bean
     public GetGastoUserByMonthInput getGastoUserByMonthInput(GastoOutput gastoOutput) {
         return new GetGastoUserByMonthUseCase(gastoOutput);
+    }
+
+    @Bean
+    public GetResumoGastoUserByMonthInput getResumoGastoUserByMonthInput(GastoOutput gastoOutput) {
+        return new GetResumoGastoUserByMonthUseCase(gastoOutput);
     }
 
     @Bean

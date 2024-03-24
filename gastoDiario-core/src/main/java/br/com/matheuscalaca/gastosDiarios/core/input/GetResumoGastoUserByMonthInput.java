@@ -1,11 +1,12 @@
 package br.com.matheuscalaca.gastosDiarios.core.input;
 
 import br.com.matheuscalaca.gastosDiarios.core.domain.Gasto;
+import br.com.matheuscalaca.gastosDiarios.core.domain.ResumoGasto;
 import br.com.matheuscalaca.gastosDiarios.core.domain.User;
 
 import java.util.List;
 
-public interface GetGastoUserByMonthInput {
+public interface GetResumoGastoUserByMonthInput {
 
-    public List<Gasto> execute(User user, Integer month, Integer year);
+    ResumoGasto execute(User user, Integer month, Integer year);
 }
