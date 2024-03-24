@@ -26,9 +26,10 @@ public class GetResumoGastoUserByMonthUseCase implements GetResumoGastoUserByMon
 
         List<Gasto> gastos = gastoOutput.findByUserAndMonth(user, month, year);
         BigDecimal sumGasto = gastos.stream().map(Gasto::getValor)
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
+                .reduce(BigDecimal.ZERO, BigDecimal::add).multiply(new BigDecimal("-1"));
 
-        return new ResumoGasto(sumGasto, BigDecimal.ZERO, BigDecimal.ZERO);
+        BigDecimal sumGanho = BigDecimal.ZERO;
+        return new ResumoGasto(sumGasto, sumGanho, sumGanho.add(sumGasto));
     }
 
     static void validMonthYearUser(User user, Integer month, Integer year) {
