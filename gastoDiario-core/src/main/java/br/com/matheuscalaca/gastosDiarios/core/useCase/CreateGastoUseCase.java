@@ -25,8 +25,8 @@ public class CreateGastoUseCase implements CreateGastoInput {
             throw new ValidException("GASTO Valor invalido: "+gasto.getValor());
         }
 
-        if(gasto.getDataCompra() == null || gasto.getDataCompra().isAfter(LocalDate.now())  ){
-            throw new ValidException("GASTO Data Compra invalido: "+gasto.getDataCompra());
+        if(gasto.getData() == null || gasto.getData().isAfter(LocalDate.now())  ){
+            throw new ValidException("GASTO Data Compra invalido: "+gasto.getData());
         }
 
         if(gasto.getCategoria() == null ){

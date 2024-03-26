@@ -8,7 +8,7 @@ public class GastoDto {
     private Long userId;
     private String nome;
     private BigDecimal valor;
-    private LocalDate dataCompra;
+    private LocalDate data;
     private Long categoriaId;
 
     public Long getUserId() {
@@ -35,12 +35,12 @@ public class GastoDto {
         this.valor = valor;
     }
 
-    public LocalDate getDataCompra() {
-        return dataCompra;
+    public LocalDate getData() {
+        return data;
     }
 
-    public void setDataCompra(LocalDate dataCompra) {
-        this.dataCompra = dataCompra;
+    public void setData(LocalDate data) {
+        this.data = data;
     }
 
     public Long getCategoriaId() {
@@ -57,7 +57,7 @@ public class GastoDto {
                 "userId=" + userId +
                 ", nome='" + nome + '\'' +
                 ", valor=" + valor +
-                ", dataCompra=" + dataCompra +
+                ", data=" + data +
                 ", categoriaId=" + categoriaId +
                 '}';
     }

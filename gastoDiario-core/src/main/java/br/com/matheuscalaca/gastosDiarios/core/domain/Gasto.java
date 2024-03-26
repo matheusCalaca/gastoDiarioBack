@@ -8,7 +8,7 @@ public class Gasto {
     private User user;
     private String nome;
     private BigDecimal valor;
-    private LocalDate dataCompra;
+    private LocalDate data;
     private Categoria categoria;
 
     public String getNome() {
@@ -27,12 +27,12 @@ public class Gasto {
         this.valor = valor;
     }
 
-    public LocalDate getDataCompra() {
-        return dataCompra;
+    public LocalDate getData() {
+        return data;
     }
 
-    public void setDataCompra(LocalDate dataCompra) {
-        this.dataCompra = dataCompra;
+    public void setData(LocalDate data) {
+        this.data = data;
     }
 
     public Categoria getCategoria() {

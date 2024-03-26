@@ -1,7 +1,6 @@
 package br.com.matheuscalaca.gastosDiarios.database.repository;
 
 import br.com.matheuscalaca.gastosDiarios.database.entity.GanhoEntity;
-import br.com.matheuscalaca.gastosDiarios.database.entity.GastoEntity;
 import br.com.matheuscalaca.gastosDiarios.database.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -14,5 +13,5 @@ import java.util.List;
 public interface GanhoRepository extends JpaRepository<GanhoEntity, Long> {
 
     @Query("SELECT g FROM GanhoEntity g WHERE g.user = :user AND MONTH(g.data) = :month AND YEAR(g.data) = :yearDate")
-    List<GanhoEntity> findByUserAndDataCompraMonth(@Param("user") UserEntity user, @Param("month") int month, @Param("yearDate") int yearDate);
+    List<GanhoEntity> findByUserAndDataMonth(@Param("user") UserEntity user, @Param("month") int month, @Param("yearDate") int yearDate);
 }

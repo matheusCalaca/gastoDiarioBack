@@ -16,7 +16,7 @@ public class GastoMapper {
         gasto.setUser(user);
         gasto.setCategoria(categoria);
         gasto.setNome(gastoDto.getNome());
-        gasto.setDataCompra(gastoDto.getDataCompra());
+        gasto.setData(gastoDto.getData());
         gasto.setValor(gastoDto.getValor());
 
         return gasto;

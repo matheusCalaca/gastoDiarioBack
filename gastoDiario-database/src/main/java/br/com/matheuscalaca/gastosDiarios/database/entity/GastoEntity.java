@@ -22,8 +22,8 @@ public class GastoEntity {
     @Nonnull
     private BigDecimal valor;
     @Nonnull
-    @Column(name = "data_compra")
-    private LocalDate dataCompra;
+    @Column(name = "data")
+    private LocalDate data;
     @ManyToOne
     @JoinColumn(name = "categoria_id")
     @Nonnull
@@ -72,11 +72,11 @@ public class GastoEntity {
     }
 
     @Nonnull
-    public LocalDate getDataCompra() {
-        return dataCompra;
+    public LocalDate getData() {
+        return data;
     }
 
-    public void setDataCompra(@Nonnull LocalDate dataCompra) {
-        this.dataCompra = dataCompra;
+    public void setData(@Nonnull LocalDate data) {
+        this.data = data;
     }
 }

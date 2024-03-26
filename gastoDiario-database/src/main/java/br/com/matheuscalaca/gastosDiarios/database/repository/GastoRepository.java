@@ -12,6 +12,6 @@ import java.util.List;
 @Repository
 public interface GastoRepository extends JpaRepository<GastoEntity, Long> {
 
-    @Query("SELECT g FROM GastoEntity g WHERE g.user = :user AND MONTH(g.dataCompra) = :month AND YEAR(g.dataCompra) = :yearDate")
-    List<GastoEntity> findByUserAndDataCompraMonth(@Param("user") UserEntity user, @Param("month") int month, @Param("yearDate") int yearDate);
+    @Query("SELECT g FROM GastoEntity g WHERE g.user = :user AND MONTH(g.data) = :month AND YEAR(g.data) = :yearDate")
+    List<GastoEntity> findByUserAndDataMonth(@Param("user") UserEntity user, @Param("month") int month, @Param("yearDate") int yearDate);
 }

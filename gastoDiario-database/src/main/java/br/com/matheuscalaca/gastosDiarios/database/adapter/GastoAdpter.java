@@ -47,7 +47,7 @@ public class GastoAdpter implements GastoOutput {
     @Override
     public List<Gasto> findByUserAndMonth(User user, Integer month, Integer year) {
         Optional<UserEntity> userEntity = userRepository.findById(user.getId());
-        List<GastoEntity> gastosEntity = gastoRepository.findByUserAndDataCompraMonth(userEntity.get(), month, year);
+        List<GastoEntity> gastosEntity = gastoRepository.findByUserAndDataMonth(userEntity.get(), month, year);
 
         List<Gasto> gastos = new ArrayList<>();
         gastosEntity.forEach(gastoEntity -> {

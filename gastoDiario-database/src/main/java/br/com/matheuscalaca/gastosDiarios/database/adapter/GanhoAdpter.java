@@ -11,7 +11,6 @@ import br.com.matheuscalaca.gastosDiarios.database.entity.GanhoEntity;
 import br.com.matheuscalaca.gastosDiarios.database.entity.UserEntity;
 import br.com.matheuscalaca.gastosDiarios.database.repository.CategoriaRepository;
 import br.com.matheuscalaca.gastosDiarios.database.repository.GanhoRepository;
-import br.com.matheuscalaca.gastosDiarios.database.repository.GastoRepository;
 import br.com.matheuscalaca.gastosDiarios.database.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -47,7 +46,7 @@ public class GanhoAdpter implements GanhoOutput {
     @Override
     public List<Ganho> findByUserAndMonth(User user, Integer month, Integer year) {
         Optional<UserEntity> userEntity = userRepository.findById(user.getId());
-        List<GanhoEntity> ganhoEntities = ganhoRepository.findByUserAndDataCompraMonth(userEntity.get(), month, year);
+        List<GanhoEntity> ganhoEntities = ganhoRepository.findByUserAndDataMonth(userEntity.get(), month, year);
 
         List<Ganho> ganhos = new ArrayList<>();
         ganhoEntities.forEach(ganhoEntity -> {
