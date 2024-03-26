@@ -2,6 +2,7 @@ package br.com.matheuscalaca.gastosDiarios.database.entity;
 
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "CATEGORIA")
@@ -11,8 +12,11 @@ public class CategoriaEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Nonnull
+    @NotNull
     private String nome;
+
+    @Enumerated(EnumType.STRING)
+    private EnumTipoEntrada entrada;
 
     public Long getId() {
         return id;
@@ -22,12 +26,19 @@ public class CategoriaEntity {
         this.id = id;
     }
 
-    @Nonnull
     public String getNome() {
         return nome;
     }
 
-    public void setNome(@Nonnull String nome) {
+    public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public EnumTipoEntrada getEntrada() {
+        return entrada;
+    }
+
+    public void setEntrada(EnumTipoEntrada entrada) {
+        this.entrada = entrada;
     }
 }

@@ -1,13 +1,30 @@
 CREATE DATABASE `gastodiario`;
 
-
 CREATE TABLE `categoria`
 (
-    `id`   bigint NOT NULL AUTO_INCREMENT,
-    `nome` varchar(255) DEFAULT NULL,
-    PRIMARY KEY (`id`)
+    `id`      bigint NOT NULL AUTO_INCREMENT,
+    `nome`    varchar(255)           DEFAULT NULL,
+    `entrada` enum ('GASTO','GANHO') DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    CONSTRAINT `categoria_chk_1` CHECK ((`entrada` between 0 and 1))
 ) ENGINE = InnoDB
   AUTO_INCREMENT = 14
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE `ganho`
+(
+    `id`           bigint         NOT NULL AUTO_INCREMENT,
+    `data`         date           NOT NULL,
+    `valor`        decimal(38, 2) NOT NULL,
+    `categoria_id` bigint         NOT NULL,
+    `user_id`      bigint DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    KEY `FK92pflueu1862h08cqvlfiru1r` (`categoria_id`),
+    KEY `FKb3u7mp0knrb5fyh7l3sbcwxiq` (`user_id`),
+    CONSTRAINT `FK92pflueu1862h08cqvlfiru1r` FOREIGN KEY (`categoria_id`) REFERENCES `categoria` (`id`),
+    CONSTRAINT `FKb3u7mp0knrb5fyh7l3sbcwxiq` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
@@ -25,6 +42,7 @@ CREATE TABLE `gasto`
     CONSTRAINT `FKcsnc3vcoms1vm2k1a4xsrla6c` FOREIGN KEY (`categoria_id`) REFERENCES `categoria` (`id`),
     CONSTRAINT `FKnk8c8g83ornxgmf2iv29lxqwg` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE = InnoDB
+  AUTO_INCREMENT = 13
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
@@ -48,7 +66,7 @@ CREATE TABLE `user`
     UNIQUE KEY `UK_2qv8vmk5wxu215bevli5derq` (`cpf`),
     UNIQUE KEY `UK_ob8kqyqqgmefl0aco34akdtpe` (`email`)
 ) ENGINE = InnoDB
-  AUTO_INCREMENT = 3
+  AUTO_INCREMENT = 5
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
@@ -61,7 +79,7 @@ CREATE TABLE `user_autentication`
     UNIQUE KEY `UK_6lfohw791k523geeug12wepng` (`user_id`),
     CONSTRAINT `FK1hv7xw4kiyp96lf406dndidl9` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE = InnoDB
-  AUTO_INCREMENT = 2
+  AUTO_INCREMENT = 3
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 

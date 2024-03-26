@@ -2,10 +2,12 @@ package br.com.matheuscalaca.gastosDiarios.api.config;
 
 import br.com.matheuscalaca.gastosDiarios.core.input.*;
 import br.com.matheuscalaca.gastosDiarios.core.output.CategoriaOutput;
+import br.com.matheuscalaca.gastosDiarios.core.output.GanhoOutput;
 import br.com.matheuscalaca.gastosDiarios.core.output.GastoOutput;
 import br.com.matheuscalaca.gastosDiarios.core.output.UserOutput;
 import br.com.matheuscalaca.gastosDiarios.core.useCase.*;
 import br.com.matheuscalaca.gastosDiarios.database.adapter.CategoriaAdpter;
+import br.com.matheuscalaca.gastosDiarios.database.adapter.GanhoAdpter;
 import br.com.matheuscalaca.gastosDiarios.database.adapter.GastoAdpter;
 import br.com.matheuscalaca.gastosDiarios.database.adapter.UserAdapter;
 import org.springframework.context.annotation.Bean;
@@ -29,6 +31,10 @@ public class AppConfig {
     }
 
     @Bean
+    public GanhoOutput ganhoOutput() {
+        return new GanhoAdpter();
+    }
+    @Bean
     public CategoriaOutput categoriaOutput() {
         return new CategoriaAdpter();
     }
@@ -46,6 +52,15 @@ public class AppConfig {
     @Bean
     public GetGastoUserByMonthInput getGastoUserByMonthInput(GastoOutput gastoOutput) {
         return new GetGastoUserByMonthUseCase(gastoOutput);
+    }
+    @Bean
+    public GetGanhoUserByMonthInput getGanhoUserByMonthInput(GanhoOutput ganhoOutput) {
+        return new GetGanhoUserByMonthUseCase(ganhoOutput);
+    }
+
+    @Bean
+    public CreateGanhoInput createGanhoInput(GanhoOutput ganhoOutput) {
+        return new CreateGanhoUseCase(ganhoOutput);
     }
 
     @Bean
