@@ -13,3 +13,12 @@ VALUES
     ('OUTROS', 'GASTO'),
     ('LIMPEZA DE CASA', 'GASTO'),
     ('CELULAR', 'GASTO');
+
+
+INSERT INTO CATEGORIA (nome, entrada)
+VALUES
+    ('SALARIO', 'GANHO'),
+    ('FERIAS', 'GANHO'),
+    ('PPR', 'GANHO'),
+    ('OUTROS', 'GANHO')
+;

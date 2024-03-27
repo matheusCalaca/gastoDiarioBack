@@ -1,6 +1,6 @@
 package br.com.matheuscalaca.gastosDiarios.database.entity;
 
-import jakarta.annotation.Nonnull;
+import br.com.matheuscalaca.gastosDiarios.core.domain.EnumTipoEntrada;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
