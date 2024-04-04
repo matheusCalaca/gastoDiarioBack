@@ -28,6 +28,6 @@ tasks.register('stage') {
 		println 'Preparando para o deploy no Heroku...'
 		// Execute quaisquer outras ações necessárias para o deploy no Heroku aqui
 		dependsOn assemble
-		//build.mustRunAfter clean
+		build.mustRunAfter clean
 	}
 }
