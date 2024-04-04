@@ -7,6 +7,10 @@ plugins {
 group = 'br.com.matheuscalaca.gastosDiarios.api'
 version = '0.0.1-SNAPSHOT'
 
+// Configuração para obter a versão do projeto
+def versionNumber = version
+
+
 java {
 	sourceCompatibility = JavaVersion.VERSION_17
 	targetCompatibility = JavaVersion.VERSION_17
@@ -76,3 +80,15 @@ tasks.withType(JavaCompile) {
 	options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
 }
 
+// Configuração para obter a versão do projeto para nomear o arquivo JAR
+tasks.withType(Jar) {
+	archiveFileName = "gastoDiario-api-${versionNumber}.jar"
+}
+
+// Tarefa personalizada para gerar o conteúdo do Procfile
+task generateProcfile(type: Copy) {
+	def procfileContent = "web: java -jar build/libs/gastoDiario-api-${versionNumber}.jar"
+	from (procfileContent)
+	into (projectDir)
+	file 'Procfile'
+}

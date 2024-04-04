@@ -9,13 +9,25 @@ subprojects {
 		mavenCentral()
 	}
 
-	tasks.withType(JavaCompile) {
+	tasks.withType(JavaCompile).configureEach {
 		options.encoding = 'UTF-8'
 	}
 
-	tasks.withType(Test) {
-		testLogging {
-			events "passed", "skipped", "failed"
+	tasks.withType(Test).tap {
+		configureEach {
+			testLogging {
+				events "passed", "skipped", "failed"
+			}
 		}
+	}
+}
+
+tasks.register('stage') {
+	dependsOn['build']
+	doLast {
+		println 'Preparando para o deploy no Heroku...'
+		// Execute quaisquer outras ações necessárias para o deploy no Heroku aqui
+		dependsOn assemble
+		//build.mustRunAfter clean
 	}
 }
