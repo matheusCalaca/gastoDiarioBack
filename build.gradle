@@ -1,33 +1,33 @@
 subprojects {
-	apply plugin: 'java'
-	apply plugin: 'idea'
+    apply plugin: 'java'
+    apply plugin: 'idea'
 
-	group 'br.com.matheuscalaca.gastosDiarios'
-	version '1.0-SNAPSHOT'
+    group 'br.com.matheuscalaca.gastosDiarios'
+    version '1.0-SNAPSHOT'
 
-	repositories {
-		mavenCentral()
-	}
+    repositories {
+        mavenCentral()
+    }
 
-	tasks.withType(JavaCompile).configureEach {
-		options.encoding = 'UTF-8'
-	}
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = 'UTF-8'
+    }
 
-	tasks.withType(Test).tap {
-		configureEach {
-			testLogging {
-				events "passed", "skipped", "failed"
-			}
-		}
-	}
+    tasks.withType(Test).tap {
+        configureEach {
+            testLogging {
+                events "passed", "skipped", "failed"
+            }
+        }
+    }
 }
 
 tasks.register('stage') {
-	dependsOn('build') // Corrigindo a sintaxe para usar () em vez de []
-	doLast {
-		println 'Preparando para o deploy no Heroku...'
-		// Execute quaisquer outras ações necessárias para o deploy no Heroku aqui
-		dependsOn 'assemble' // Adicionando a dependência 'assemble'
-		build.mustRunAfter 'clean' // Certificando-se de que a tarefa 'build' execute após 'clean'
-	}
+    dependsOn('build') // Usando () para passar os argumentos
+    dependsOn 'assemble' // Adicionando a dependência 'assemble'
+    doLast {
+        println 'Preparando para o deploy no Heroku...'
+        // Execute quaisquer outras ações necessárias para o deploy no Heroku aqui
+        tasks.build.mustRunAfter tasks.clean // Certificando-se de que a tarefa 'build' execute após 'clean'
+    }
 }
