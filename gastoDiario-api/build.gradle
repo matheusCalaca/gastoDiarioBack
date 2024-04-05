@@ -85,13 +85,13 @@ tasks.withType(Jar) {
 	archiveFileName = "gastoDiario-api-${versionNumber}.jar"
 }
 
-// Tarefa personalizada para gerar o conteúdo do Procfile
-tasks.register('generateProcfile', Copy) {
-	def procfileContent = "web: java -jar build/libs/gastoDiario-api-${versionNumber}.jar"
-	from(procfileContent)
-	into(projectDir)
-	file 'Procfile'
-}
+//// Tarefa personalizada para gerar o conteúdo do Procfile
+//tasks.register('generateProcfile', Copy) {
+//	def procfileContent = "web: java -jar build/libs/gastoDiario-api-${versionNumber}.jar"
+//	from(procfileContent)
+//	into(projectDir)
+//	file 'Procfile'
+//}
 
 
 //// Defina o diretório de destino para o JAR copiado
