@@ -86,9 +86,22 @@ tasks.withType(Jar) {
 }
 
 // Tarefa personalizada para gerar o conteúdo do Procfile
-task generateProcfile(type: Copy) {
+tasks.register('generateProcfile', Copy) {
 	def procfileContent = "web: java -jar build/libs/gastoDiario-api-${versionNumber}.jar"
-	from (procfileContent)
-	into (projectDir)
+	from(procfileContent)
+	into(projectDir)
 	file 'Procfile'
 }
+
+
+//// Defina o diretório de destino para o JAR copiado
+//def destinationDir = file("${rootDir}/build/libs")
+//
+//// Tarefa para copiar o JAR para o diretório de destino
+//tasks.register('copyJar', Copy) {
+//	from jar // JAR gerado pelo projeto
+//	into destinationDir
+//}
+//
+//// Adicione a dependência para a tarefa 'copyJar' na tarefa 'assemble'
+//assemble.dependsOn(copyJar)

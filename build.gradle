@@ -1,3 +1,7 @@
+plugins {
+    id 'com.heroku.sdk.heroku-gradle' version '2.0.0'
+}
+
 subprojects {
     apply plugin: 'java'
     apply plugin: 'idea'
@@ -23,11 +27,9 @@ subprojects {
 }
 
 tasks.register('stage') {
-    dependsOn('build') // Usando () para passar os argumentos
-    dependsOn 'assemble' // Adicionando a dependência 'assemble'
-    doLast {
-        println 'Preparando para o deploy no Heroku...'
-        // Execute quaisquer outras ações necessárias para o deploy no Heroku aqui
-        tasks.build.mustRunAfter tasks.clean // Certificando-se de que a tarefa 'build' execute após 'clean'
-    }
+    dependsOn('build')
+}
+
+tasks.register('build') {
+    dependsOn(subprojects.build)
 }
