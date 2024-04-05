@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
-@Table(name = "USER_AUTENTICATION")
+@Table(name = "user_autentication")
 public class UserAuthenticationEntity {
 
     @Id

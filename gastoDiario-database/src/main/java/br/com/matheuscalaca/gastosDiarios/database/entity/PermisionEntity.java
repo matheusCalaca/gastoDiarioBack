@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.UniqueElements;
 
 @Entity
-@Table(name = "PERMISION")
+@Table(name = "permision")
 public class PermisionEntity {
 
     @Id
