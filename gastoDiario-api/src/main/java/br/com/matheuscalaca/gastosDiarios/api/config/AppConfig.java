@@ -64,8 +64,8 @@ public class AppConfig {
     }
 
     @Bean
-    public GetResumoGastoUserByMonthInput getResumoGastoUserByMonthInput(GastoOutput gastoOutput) {
-        return new GetResumoGastoUserByMonthUseCase(gastoOutput);
+    public GetResumoGastoUserByMonthInput getResumoGastoUserByMonthInput(GastoOutput gastoOutput, GanhoOutput ganhoOutput) {
+        return new GetResumoGastoUserByMonthUseCase(gastoOutput, ganhoOutput);
     }
 
     @Bean
