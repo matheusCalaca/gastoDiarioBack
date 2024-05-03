@@ -21,6 +21,9 @@ public class UserAdapter implements UserOutput {
     @Autowired
     private UserAuthenticationRepository userAuthenticationRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @Override
     public void creat(User user, String password) {
         UserEntity userEntity = UserMapper.toEntity(user);
@@ -39,5 +42,11 @@ public class UserAdapter implements UserOutput {
 
         return userEntity.map(UserAuthentiocationMapper::toDomain).orElse(null);
 
+    }
+
+    @Override
+    public User findUserByEmail(String email) {
+        Optional<UserEntity> userEntity = userRepository.findFirstByEmail(email);
+        return userEntity.map(UserMapper::toDomain).orElse(null);
     }
 }

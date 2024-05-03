@@ -5,7 +5,8 @@ import br.com.matheuscalaca.gastosDiarios.core.domain.UserAuthetication;
 
 public interface UserOutput {
 
-    public void creat(User user, String password);
-    public UserAuthetication findByEmail(String email);
+     void creat(User user, String password);
+     UserAuthetication findByEmail(String email);
+     User findUserByEmail(String email);
 
 }

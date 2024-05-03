@@ -63,6 +63,12 @@ public class AppConfig {
         return new CreateGanhoUseCase(ganhoOutput);
     }
 
+
+    @Bean
+    public GetUserInput getUserInput(UserOutput userOutput) {
+        return new GetUserUseCase(userOutput);
+    }
+
     @Bean
     public GetResumoGastoUserByMonthInput getResumoGastoUserByMonthInput(GastoOutput gastoOutput, GanhoOutput ganhoOutput) {
         return new GetResumoGastoUserByMonthUseCase(gastoOutput, ganhoOutput);

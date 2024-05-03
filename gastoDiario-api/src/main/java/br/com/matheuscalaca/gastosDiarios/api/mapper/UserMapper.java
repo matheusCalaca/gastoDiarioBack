@@ -1,6 +1,7 @@
 package br.com.matheuscalaca.gastosDiarios.api.mapper;
 
 import br.com.matheuscalaca.gastosDiarios.api.dto.UserDto;
+import br.com.matheuscalaca.gastosDiarios.api.dto.UserInfoDto;
 import br.com.matheuscalaca.gastosDiarios.core.domain.User;
 import br.com.matheuscalaca.gastosDiarios.core.domain.UserAuthetication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -19,6 +20,17 @@ public class UserMapper {
 
     public UserDto toDto(User user) {
         UserDto userDto = new UserDto();
+        userDto.setCpf(user.getCpf());
+        userDto.setNome(user.getNome());
+        userDto.setEmail(user.getEmail());
+
+        return userDto;
+    }
+
+
+    public UserInfoDto toInfoDto(User user) {
+        UserInfoDto userDto = new UserInfoDto();
+        userDto.setId(user.getId());
         userDto.setCpf(user.getCpf());
         userDto.setNome(user.getNome());
         userDto.setEmail(user.getEmail());

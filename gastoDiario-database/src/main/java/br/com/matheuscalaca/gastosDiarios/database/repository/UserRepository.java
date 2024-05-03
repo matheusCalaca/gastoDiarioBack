@@ -10,11 +10,11 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
-//
-//    @Query("""
-//            select u from UserEntity u
-//            where u.email = :email
-//
-//            """)
+
+    @Query("""
+            select u from UserEntity u
+            where u.email = :email
+
+            """)
     Optional<UserEntity> findFirstByEmail(@Param("email") String email);
 }
