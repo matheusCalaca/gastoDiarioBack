@@ -1,0 +1,142 @@
+### flyctl launch added from .gitignore
+#**\HELP.md
+#**\.gradle
+##**\build
+#!**\gradle\wrapper\gradle-wrapper.jar
+##!**\**\src\main\**\build
+##!**\**\src\test\**\build
+##
+##### STS ###
+#**\.apt_generated
+#**\.classpath
+#**\.factorypath
+#**\.project
+#**\.settings
+#**\.springBeans
+#**\.sts4-cache
+#**\bin
+#!**\**\src\main\**\bin
+#!**\**\src\test\**\bin
+##
+##### IntelliJ IDEA ###
+#**\.idea
+#**\*.iws
+#**\*.iml
+#**\*.ipr
+#**\out
+#!**\**\src\main\**\out
+#!**\**\src\test\**\out
+##
+##### NetBeans ###
+#nbproject\private
+#nbbuild
+#dist
+#nbdist
+#.nb-gradle
+##
+##### VS Code ###
+#**\.vscode
+##
+### flyctl launch added from .idea\.gitignore
+### Default ignored files
+#.idea\shelf
+#.idea\workspace.xml
+### Editor-based HTTP Client requests
+#.idea\httpRequests
+### Datasource local storage ignored files
+#.idea\dataSources
+#.idea\dataSources.local.xml
+#
+## flyctl launch added from gastoDiario-api\.gitignore
+##### IntelliJ IDEA ###
+#gastoDiario-api\**\out
+#!gastoDiario-api\**\**\src\main\**\out
+#!gastoDiario-api\**\**\src\test\**\out
+#
+#### Eclipse ###
+#gastoDiario-api\**\.apt_generated
+#gastoDiario-api\**\.classpath
+#gastoDiario-api\**\.factorypath
+#gastoDiario-api\**\.project
+#gastoDiario-api\**\.settings
+#gastoDiario-api\**\.springBeans
+#gastoDiario-api\**\.sts4-cache
+#gastoDiario-api\**\bin
+#!gastoDiario-api\**\**\src\main\**\bin
+#!gastoDiario-api\**\**\src\test\**\bin
+#
+#### NetBeans ###
+#gastoDiario-api\nbproject\private
+#gastoDiario-api\nbbuild
+#gastoDiario-api\dist
+#gastoDiario-api\nbdist
+#gastoDiario-api\.nb-gradle
+#
+#### VS Code ###
+#gastoDiario-api\**\.vscode
+#
+#### Mac OS ###
+#gastoDiario-api\**\.DS_Store
+#
+## flyctl launch added from gastoDiario-core\.gitignore
+#### IntelliJ IDEA ###
+#gastoDiario-core\**\out
+#!gastoDiario-core\**\**\src\main\**\out
+#!gastoDiario-core\**\**\src\test\**\out
+#
+#### Eclipse ###
+#gastoDiario-core\**\.apt_generated
+#gastoDiario-core\**\.classpath
+#gastoDiario-core\**\.factorypath
+#gastoDiario-core\**\.project
+#gastoDiario-core\**\.settings
+#gastoDiario-core\**\.springBeans
+#gastoDiario-core\**\.sts4-cache
+#gastoDiario-core\**\bin
+#!gastoDiario-core\**\**\src\main\**\bin
+#!gastoDiario-core\**\**\src\test\**\bin
+#
+#### NetBeans ###
+#gastoDiario-core\nbproject\private
+#gastoDiario-core\nbbuild
+#gastoDiario-core\dist
+#gastoDiario-core\nbdist
+#gastoDiario-core\.nb-gradle
+#
+#### VS Code ###
+#gastoDiario-core\**\.vscode
+#
+#### Mac OS ###
+#gastoDiario-core\**\.DS_Store
+#
+## flyctl launch added from gastoDiario-database\.gitignore
+#### IntelliJ IDEA ###
+#gastoDiario-database\**\out
+#!gastoDiario-database\**\**\src\main\**\out
+#!gastoDiario-database\**\**\src\test\**\out
+#
+#### Eclipse ###
+#gastoDiario-database\**\.apt_generated
+#gastoDiario-database\**\.classpath
+#gastoDiario-database\**\.factorypath
+#gastoDiario-database\**\.project
+#gastoDiario-database\**\.settings
+#gastoDiario-database\**\.springBeans
+#gastoDiario-database\**\.sts4-cache
+#gastoDiario-database\**\bin
+#!gastoDiario-database\**\**\src\main\**\bin
+#!gastoDiario-database\**\**\src\test\**\bin
+#
+#### NetBeans ###
+#gastoDiario-database\nbproject\private
+#gastoDiario-database\nbbuild
+#gastoDiario-database\dist
+#gastoDiario-database\nbdist
+#gastoDiario-database\.nb-gradle
+#
+#### VS Code ###
+#gastoDiario-database\**\.vscode
+#
+#### Mac OS ###
+#gastoDiario-database\**\.DS_Store
+#fly.toml
